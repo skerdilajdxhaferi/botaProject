@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@700&display=swap"
+    rel="stylesheet"
+  />
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="game.css">
+ <title>Game | BotaProject</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg nav " >
+    <div class="container-fluid ">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ps-5" id="navbarNav" >
+        <ul class="navbar-nav " >
+          <li class="nav-item" >
+            <a class="nav-link" style="background-color: transparent;" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="background-color: transparent;" href="learn.html">Learn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="background-color: transparent;" href="game.html">Game</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      <header>
+        <div class="name">
+          <h3>Guess the State!</h3>
+          
+        </div>
+        <div id="flag"></div>
+       
+      </header>
+      
+      <p class="message">Start guessing...</p>
+      
+      <main>
+        <section class="left">
+          <input type="text" class="guess" placeholder="Enter the state..."/>
+          <div class="buttons">
+            <button class="btn check">Check!</button>
+            <button class="btn again">Play Again!</button>
+          </div>
+        </section>
+  
+        <section class="right">
+          <p class="label-score">Score: <span class="score">20</span></p>
+          <p class="label-highscore">
+            Highscore: <span class="highscore">0</span>
+          </p>
+        </section>
+      </main>
+  
+      <div class="finish hidden">
+        <button class="close-modal">&times;</button>
+        <h2>You have found the secret state!</h2>
+        <p>Please close this window!!!</p>
+      </div>
+      <div class="overlay hidden"></div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="game.js"></script>
+
+
+    </body>
+</html>

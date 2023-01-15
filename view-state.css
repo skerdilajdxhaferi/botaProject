@@ -1,0 +1,15 @@
+.col{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 50px;
+    font-size: large;
+}
+
+h2{
+    margin-bottom: 0px;
+}
+
+p{
+    margin: 7px;
+}

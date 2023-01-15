@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="view-state.css">
+    <title>View the State</title>
+</head>
+<body>
+    <div id="state"></div>
+
+    <script type="module">
+
+function composeProductHTML(element) {
+    let result = ''
+
+    result += `
+    <div class="col ">
+                <div class=" item-menu">
+                <a href="https://en.wikipedia.org/wiki/${element[0].name.common}" target="_blank"><img src="${element[0].flags.png}" alt="${element[0].name.common}" class="product-img" /></a>
+                    <div class="description">
+                    <a href="https://en.wikipedia.org/wiki/${element[0].name.common}" target="_blank" style="text-decoration: none; color: black;"> <h2 class="card-title">${element[0].name.common}</h2></a>
+                        <br>
+                        <p><b>Official Name: </b> ${element[0].name.official}</p>
+                        <p><b>Area:</b> ${element[0].area.toLocaleString()} km <sup>2</p>
+                        <p><b>Population:</b> ${element[0].population.toLocaleString()}</p>
+                        <p><b>Language(s):</b> ${Object.values(element[0].languages).map(l=>(`${l} ` ))}</p>
+                        <p><b>Continent:</b> ${element[0].continents}</p>
+                        <p><b>Currencie(s):</b> ${Object.values(element[0].currencies).map(l=>(`${l.name} ${l.symbol} `))}</p>
+                        <p><b>Capital:</b> ${element[0].capital}</p>
+                        <p><b>Is Independent: </b> ${element[0].independent == true ? 'Yes' : 'No'}</p>
+                        <br>
+                        <a href="${element[0].maps.googleMaps}" target="_blank" class="gmap"> View Google Map </a> &nbsp; &nbsp;
+                        <a href="${element[0].maps.openStreetMaps}" target="_blank" class="osmap"> Open Street Map </a>
+                    </div>
+                </div>
+                </div>`
+
+    return result
+}
+
+import getItemFromURL from './Helpers.js'
+const name = getItemFromURL(document.URL, 'name')
+const divi =document.getElementById('state')
+
+function getProductByName(div, name) {
+    fetch(`https://restcountries.com/v3.1/name/${name}`)
+    .then(response => response.json())
+    .then(data => {
+        div.innerHTML = composeProductHTML(data)
+    })
+}
+
+if(name !== null) {
+            getProductByName(divi, name)
+        } else {
+            divi.innerHTML = '<h1>Product was not found!</h1>'
+        }
+
+
+    </script>
+</body>
+</html>

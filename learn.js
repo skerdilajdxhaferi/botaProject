@@ -58,10 +58,10 @@ fetch(`https://restcountries.com/v3.1/region/${continent}`)
 
         presEnter("searchCountry", "btnSearch2")
 
-        document.getElementById("btnSearch2").addEventListener("click", () =>{
-            document.getElementById("states").innerHTML = ''
-            let country = document.getElementById("searchCountry")
-            country.classList.remove("items");
+document.getElementById("btnSearch2").addEventListener("click", () =>{
+document.getElementById("states").innerHTML = ''
+let country = document.getElementById("searchCountry")
+country.classList.remove("items");
 
 let countryName = country.value
 

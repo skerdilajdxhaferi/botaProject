@@ -71,12 +71,12 @@ let highscore = 0;
                     document.getElementById("flag").innerHTML +=`
                         <a href="https://en.wikipedia.org/wiki/${continents[randomContinent][randomFlag].name.common}" target="_blank" class ="secretState"><img src="${continents[randomContinent][randomFlag].flags.png}" alt="${continents[randomContinent][randomFlag].name.common}" class="product-img" /></a>`
     
-    let theState = `${continents[randomContinent][randomFlag].name.common.toLowerCase()}`    
+     
 
   // check the number
     document.querySelector('.check').addEventListener('click', function () {
     const guessFlag = document.querySelector('.guess').value;
-        
+    let theState = `${continents[randomContinent][randomFlag].name.common.toLowerCase()}`  
     // When there is no input
     if (!guessFlag) {
         displayMessage('No state entered!');
@@ -101,6 +101,7 @@ let highscore = 0;
     
       // When guess is wrong
     } else if (guessFlag !== theState) {
+      displayMessage('Wrong state entered!');
         if (score > 1) {
         
         backgroundColor('red');
